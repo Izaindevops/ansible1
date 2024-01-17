@@ -1,6 +1,9 @@
-# Use an official Nginx runtime as a base image
-FROM nginx:latest
+FROM nginx:1.21.3-alpine
 
-# Copy the local website files into COPY . /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+RUN mkdir /etc/nginx/ssl
+COPY nginx.conf /etc/nginx/conf.d
+COPY ./etc/.auth_keys/fullchain.pem /etc/nginx/ssl/
+COPY ./etc/.auth_keys/privkey.pem /etc/nginx/ssl/
 
-COPY . /usr/share/nginx/html
+WORKDIR /usr/src/app
