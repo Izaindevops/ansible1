@@ -2,10 +2,12 @@
 FROM nginx:latest
 
 # Set the working directory in the container
-WORKDIR /usr/share/nginx/html
+WORKDIR /usr/share/nginx/htm
 
-# Copy the local website files into the container at /usr/share/nginx/html
-COPY ./website /usr/share/nginx/html
+# Copy the local website files into COPY . /usr/share/nginx/html
+
+COPY . /usr/share/nginx/html
+
 
 # Expose port 80 to the outside world
 EXPOSE 80
