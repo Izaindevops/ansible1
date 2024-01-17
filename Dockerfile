@@ -6,8 +6,7 @@ WORKDIR /usr/share/nginx/htm
 
 # Copy the local website files into COPY . /usr/share/nginx/html
 
-COPY . /usr/share/nginx/html
-
+COPY . /var/lib/jenkins/workspace/ansible-jenkins-pipeline
 
 # Expose port 80 to the outside world
 EXPOSE 80
